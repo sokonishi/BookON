@@ -1,6 +1,6 @@
 <?php
     // 1.DBに接続
-    $dsn = 'mysql:dbname=booker2;host=localhost';
+    $dsn = 'mysql:dbname=BookON;host=localhost';
     $db_user = 'root';
     $db_password='';
     $dbh = new PDO($dsn, $db_user, $db_password);
