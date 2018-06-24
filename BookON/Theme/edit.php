@@ -6,7 +6,7 @@
   $data = array();
   $stmt = $dbh->prepare($sql);
   $stmt->execute($data);
-  $feeds = $stmt->fetch(PDO::FETCH_ASSOC);//の方がスマート
+  $feeds = $stmt->fetch(PDO::FETCH_ASSOC);
   //HTML内にデータ表示の処理を記述
 
   if (!empty($_POST)){
@@ -35,7 +35,7 @@
 <html lang="ja">
 <head>
   <meta charset="utf-8">
-  <title>Learn SNS</title>
+  <title>BookON</title>
   <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.css">
   <link rel="stylesheet" type="text/css" href="assets/font-awesome/css/font-awesome.css">
   <link rel="stylesheet" type="text/css" href="assets/css/style.css">
@@ -55,7 +55,7 @@
           <h3>評価</h3>
           <textarea name="score" class="form-control"><?php echo $feed["score"]; ?></textarea>
           <br>
-          <h3>内容</h3>
+          <h3>感想</h3>
           <textarea name="feed" class="form-control"><?php echo $feed["feed"]; ?></textarea>
           <input type="submit" value="更新" class="btn btn-warning btn-xs">
         </form>

@@ -47,7 +47,7 @@
     <meta name="author" content="Dashboard">
     <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
 
-    <title>DASHGUM - FREE Bootstrap Admin Template</title>
+    <title>BookON</title>
 
     <!-- Bootstrap core CSS -->
     <link href="assets/css/bootstrap.css" rel="stylesheet">
@@ -60,14 +60,9 @@
     <!-- Custom styles for this template -->
     <link href="assets/css/style.css" rel="stylesheet">
     <link href="assets/css/style-responsive.css" rel="stylesheet">
+    <link href="bookon.css" rel="stylesheet">
 
     <script src="assets/js/chart-master/Chart.js"></script>
-    
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
   </head>
 
   <body>
@@ -85,7 +80,6 @@
       <!--main content start-->
       <section id="main-content">
           <section class="wrapper">
-
               <div class="row">
                   <div class="col-lg-9 main-chart">
                   
@@ -111,17 +105,24 @@
           <?php foreach ($feeds as $feed){ ?>
           <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 desc">
             <div class="project-wrapper" style="padding-bottom: 36px;">
-              <div class="project">
+              <div class="project card_hover card-parent">
                   <div class="photo-wrapper">
-                      <div class="photo">
-                        <a class="fancybox" href="detail.php?feed_id=<?php echo $feed['id']?>"><img class="img-responsive" src="user_profile_img/<?php echo $feed['feed_img'] ?>" alt="" style="height: 222.94px; width: 326.66px;"></a>
-                      </div>
-                      <div class="overlay"></div>
+                    <!-- <div class="photo"> -->
+                      <a class="fancybox" href="detail.php?feed_id=<?php echo $feed['id']?>">
+                        <img class="img-responsive" src="user_profile_img/<?php echo $feed['feed_img'] ?>" alt="" style="height: 222.94px; width: 326.66px;">
+
+                        <div class="card_contents card_children">
+                          <div class="feed_title"><h3>『<?php echo $feed["title"] ?>』</h3></div>
+                          <div class="feed_square"><h3><?php echo $feed["score"] ?>点</h3></div>
+                        </div>
+
+                      </a>
+                    <!-- </div> -->
+                    <div class="overlay"></div>
                   </div>
               </div>
             </div>
           </div><!-- col-lg-4 -->
-
           <?php } ?>
         <?php }?>
         </div><!-- /row -->
@@ -130,12 +131,7 @@
       </section><!-- /MAIN CONTENT -->
           
                   </div><!-- /col-lg-9 END SECTION MIDDLE -->
-                  
-                  
-      <!-- **********************************************************************************************************************************************************
-      RIGHT SIDEBAR CONTENT
-      *********************************************************************************************************************************************************** -->                  
-                  
+
       <?php require('sidebar_right.php'); ?>
 
               </div><! --/row -->
@@ -167,6 +163,7 @@
 
     <!--common script for all pages-->
     <script src="assets/js/common-scripts.js"></script>
+    <script src="bookon.js"></script>
     
     <script type="text/javascript" src="assets/js/gritter/js/jquery.gritter.js"></script>
     <script type="text/javascript" src="assets/js/gritter-conf.js"></script>

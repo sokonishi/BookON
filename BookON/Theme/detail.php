@@ -55,7 +55,7 @@
     <meta name="author" content="Dashboard">
     <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
 
-    <title>DASHGUM - Bootstrap Admin Template</title>
+    <title>BookON</title>
 
     <!-- Bootstrap core CSS -->
     <link href="assets/css/bootstrap.css" rel="stylesheet">
@@ -65,12 +65,6 @@
     <!-- Custom styles for this template -->
     <link href="assets/css/style.css" rel="stylesheet">
     <link href="assets/css/style-responsive.css" rel="stylesheet">
-
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
   </head>
 
   <body>
@@ -95,7 +89,7 @@
                   <h3><i class="fa fa-angle-right"></i> Detail</h3>
                   <hr>
                 <div class="col-xs-offset-1 col-xs-10 col-sm-12 comment_layer_col">
-                  <div class="col-sm-7">
+                  <div class="col-sm-6">
                     <img src="user_profile_img/<?php echo $record['feed_img'] ?>" id="comment_layer_img" style="height: 222.94px; width: 326.66px;">
 
                     <div class="edit" style="padding-top: 30px;">
@@ -117,13 +111,16 @@
                     </div>
                   </div>
 
-                    <div class="col-sm-5">
+                    <div class="col-sm-6">
                       <div class="square">
-                        <div class="col-xs-offset-1 col-xs-10">
-                          <h3><?php echo $record['title'] ?></h3>
-                          <h3><?php echo $record['score'] ?></h3>
-                          <h4><?php echo $record['feed'] ?></h4>
-                        </div>
+                        <!-- <div class="col-xs-offset-1 col-xs-10"> -->
+                          <h5 style="font-weight: bold;">タイトル</h5>
+                          <h3 style="padding-bottom:24px;"><?php echo $record['title'] ?></h3>
+                          <h5 style="font-weight: bold;">評価</h5>
+                          <h3 style="padding-bottom:24px;"><?php echo $record['score'] ?>点</h3>
+                          <h5 style="font-weight: bold;">感想</h5>
+                          <h3><?php echo $record['feed'] ?></h3>
+                        <!-- </div> -->
                       </div>
                     </div>
 

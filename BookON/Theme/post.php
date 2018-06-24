@@ -2,7 +2,7 @@
     session_start();
     require('dbconnect.php');
 
-    $errors = array();    //この配列の意味はエラーの種類
+    $errors = array();
 
     $users_sql = 'SELECT * FROM `users` WHERE `id`=?';
     $users_data = array($_SESSION['id']);
@@ -10,7 +10,7 @@
     $users_stmt->execute($users_data);
     $users_record = $users_stmt->fetch(PDO::FETCH_ASSOC);
 
-    if (!empty($_POST)) {   //POST送信があった時に以下を実行する
+    if (!empty($_POST)) {
         $title = $_POST['input_title'];
         $feed = $_POST['input_feed'];
         $score = $_POST['input_score'];
@@ -33,8 +33,6 @@
             $errors['score'] = 'over';
         }
 
-          //var_dump($_FILES,$_POST);
-          //exit();
         //画像名を取得
         $file_name = $_FILES[
           'input_img_name']['name'];
@@ -72,11 +70,6 @@
 
             move_uploaded_file($_FILES['input_img_name']['tmp_name'], 'user_profile_img/'.$submit_file_name);
 
-            //var_dump($_FILES);
-            //exit();
-            //$_SESSIONサーバーに保存されるスーパーグローバル変数
-            //ログインしていることのユーザー情報などを保存しておくことが多い
-
             $_SESSION['mcteam']['title'] = $_POST['input_title'];
             $_SESSION['mcteam']['feed'] = $_POST['input_feed'];
             $_SESSION['mcteam']['score'] = $_POST['input_score'];
@@ -99,7 +92,7 @@
     <meta name="author" content="Dashboard">
     <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
 
-    <title>DASHGUM - Bootstrap Admin Template</title>
+    <title>BookON</title>
 
     <!-- Bootstrap core CSS -->
     <link href="assets/css/bootstrap.css" rel="stylesheet">
@@ -109,12 +102,6 @@
     <!-- Custom styles for this template -->
     <link href="assets/css/style.css" rel="stylesheet">
     <link href="assets/css/style-responsive.css" rel="stylesheet">
-
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
   </head>
 
   <body>
@@ -168,7 +155,7 @@
                             <p class="text-danger">100点満点で評価して下さい</p>
                           <?php } ?>
 
-                      <h3>内容</h3>
+                      <h3>感想</h3>
                         <textarea class="form-control" name="input_feed" cols="65" rows="3"></textarea>
                           <?php if(isset($errors['feed']) && $errors['feed'] == 'blank') { ?>
                             <p class="text-danger">内容を入力してください</p>
