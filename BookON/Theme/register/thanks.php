@@ -23,7 +23,7 @@
     <div id="login-page">
       <div class="container">
         <div class="row">
-          <div class="col-xs-8 col-xs-offset-2 thumbnail">
+          <div class="col-xs-8 col-xs-offset-2 thumbnail" style="margin-top: 250px;">
             <h2 class="text-center content_header">アカウント作成完了</h2>
             <div class="text-center">
               <p>ユーザーアカウントの作成が完了しました。</p>

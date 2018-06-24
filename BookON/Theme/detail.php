@@ -114,16 +114,18 @@
                     <div class="col-sm-6">
                       <div class="square">
                         <!-- <div class="col-xs-offset-1 col-xs-10"> -->
-                          <h5 style="font-weight: bold;">タイトル</h5>
+                          <h4 style="font-weight: bold;">タイトル</h4>
                           <h3 style="padding-bottom:24px;"><?php echo $record['title'] ?></h3>
-                          <h5 style="font-weight: bold;">評価</h5>
+                          <h4 style="font-weight: bold;">評価</h4>
                           <h3 style="padding-bottom:24px;"><?php echo $record['score'] ?>点</h3>
-                          <h5 style="font-weight: bold;">感想</h5>
-                          <h3><?php echo $record['feed'] ?></h3>
                         <!-- </div> -->
                       </div>
                     </div>
-
+                </div>
+                <div class="col-xs-offset-1 col-xs-10 col-sm-12 comment_layer_col">
+                  <br>
+                  <h4 style="font-weight: bold;">感想</h4>
+                  <h3><?php echo $record['feed'] ?></h3>
                 </div>
                 </section>
             </section><!-- /MAIN CONTENT -->

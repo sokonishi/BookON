@@ -104,7 +104,7 @@
                       
             <section id="main-content-mypage">
                 <section class="wrapper-list site-min-height">
-                  <h3><i class="fa fa-angle-right"></i> My Gallery&emsp;〜読んだ本〜</h3>
+                  <h3><i class="fa fa-angle-right"></i> My Gallery&emsp;〜おすすめの本〜</h3>
                   <hr>
               <div class="row mt">
               <?php if(isset($feeds)){ ?>
