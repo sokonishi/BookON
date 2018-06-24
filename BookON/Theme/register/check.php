@@ -2,41 +2,27 @@
 session_start();
 
     if(!isset($_SESSION['register'])) {
-    //正規のルートから遷移していない場合
       header("Location:signup.php");
       exit();
     }
-//echo "<pre>";
-//var_dump($_SESSION);
-//echo "</pre>";
 
-   // ①
     $name = $_SESSION['register']['name'];
     $email = $_SESSION['register']['email'];
-    //requireが下にいるためpasswordが上書きされてしまう、user_password
     $user_password = $_SESSION['register']['password'];
-
-    //var_dump($user_password);
-
     $img_name = $_SESSION['register']['img_name'];
 
-    // 登録ボタンが押された時の処理 = POSTがからじゃない
-
     if(!empty($_POST)) {
-        // 1.DB実行
-        require('../dbconnect.php');
 
-        // 2.SQL文実行
+        require('../dbconnect.php');
         $sql = 'INSERT INTO `users` SET `name`=?, `email`=?, `password`=?, `img_name`=?, `created`=NOW()';
         $data = array($name, $email, password_hash($user_password, PASSWORD_DEFAULT), $img_name);
         $stmt = $dbh->prepare($sql);
         $stmt->execute($data);
 
-        // 3. データベース切断
          $dbh = null;
 
         unset($_SESSION['register']);
-        //var_dump($_SESSION['register']);
+
         header('Location: thanks.php');
         exit();
     }
@@ -51,7 +37,7 @@ session_start();
     <meta name="author" content="Dashboard">
     <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
 
-    <title>DASHGUM - Bootstrap Admin Template</title>
+    <title>BookOn</title>
 
     <!-- Bootstrap core CSS -->
     <link href="../assets/css/bootstrap.css" rel="stylesheet">

@@ -23,27 +23,22 @@
         }
         //アドレスが重複しているかどうか
         else{
-            // 1.DB接続
+
             require('../dbconnect.php');
 
-            // 2.SQL
             $sql = 'SELECT COUNT(*) as `cnt` FROM `users` WHERE `email` = ?';
             $data = array($email);
             $stmt = $dbh->prepare($sql);
             $stmt->execute($data);
-            //var_dump($sql);
 
-            //3.DB切断
             $dbh = null;
 
-            //4.取り出し
             $rec = $stmt->fetch(PDO::FETCH_ASSOC);
 
-            if ( $rec['cnt'] > 0){  //メールアドレス数が0より大きい=すでに登録されている
+            if ( $rec['cnt'] > 0){
               //アドレスが重複しているかどうか
               $errors['email'] = 'duplicate';
             }
-
         }
 
         if ($password == '') {
@@ -64,24 +59,16 @@
             //比較するために取得した拡張子を小文字に変換する
 
             if( $file_type != '.jpg' && $file_type != '.png' && $file_type != '.gif' && $file_type != 'jpeg') {
-              //エラーの時の処理
               $errors['img_name'] = 'type';
             }
           }
           else {
-            //ファイルがないときの処理
             $errors['img_name']='blank';
           }
 
-          //echo $file_name."<br>"
-
-          //echo"<pre>";
-          //var_dump($_FILES);
-          //echo"</pre>";
 
           if(empty($errors)) {
-            //エラーがなかった時の取得
-            date_default_timezone_set('Asia/Manila');   //フィリピン時間に設定
+            date_default_timezone_set('Asia/Manila');
             $date_str = date('YmdHis');
             //この行を実行した日時を取得
             $submit_file_name = $date_str.$file_name;
@@ -93,15 +80,11 @@
             move_uploaded_file($_FILES['input_img_name']['tmp_name'], '../user_profile_img/'.$submit_file_name);
 
             var_dump($_FILES);
-            //$_SESSIONサーバーに保存されるスーパーグローバル変数
-            //ログインしていることのユーザー情報などを保存しておくことが多い
 
             $_SESSION['register']['name'] = $_POST['input_name'];
             $_SESSION['register']['email'] = $_POST['input_email'];
             $_SESSION['register']['password'] = $_POST['input_password'];
-            // 上記3つは$_SESSION['register'] =     $_POST;という書き方で1文にまとめることもできます
             $_SESSION['register']['img_name'] = $submit_file_name;
-            //$_SESSION['register']['sonota'] = $
 
             header('Location: check.php');
             exit();
@@ -119,7 +102,7 @@
     <meta name="author" content="Dashboard">
     <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
 
-    <title>DASHGUM - Bootstrap Admin Template</title>
+    <title>BookON</title>
 
     <!-- Bootstrap core CSS -->
     <link href="../assets/css/bootstrap.css" rel="stylesheet">

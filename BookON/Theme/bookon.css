@@ -1,0 +1,45 @@
+.card_contents {
+  display: none;
+}
+
+.card_active {
+  display: block;
+  background-color: rgba(104,223,240,0.85);
+  color: #fff;
+  height: 100%;
+  margin: auto;
+}
+
+.card-parent {
+  position: relative;
+  margin: 0 auto;
+  background-color: #fff;
+/*  text-align:center;*/
+  filter: drop-shadow(10px 10px 10px rgba(0,0,0,0.6));
+}
+
+.card_children {
+  position: absolute;
+  top: 0px;
+  width: 100%;
+  list-style: none;
+}
+
+.feed_title {
+  position: absolute;
+/*  top: 24px;
+  left: 36px;*/
+  padding: 20px;
+}
+
+.feed_score {
+  position: absolute;
+  top: 90px;
+  left: 130px;
+}
+
+.feed_square {
+  position: absolute;
+  top: 105px;
+  left: 85px;
+}
