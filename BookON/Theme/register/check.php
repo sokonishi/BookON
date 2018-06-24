@@ -65,7 +65,7 @@ session_start();
       <div class="container">
 
         <div class="row form-login">
-          <div class="col-xs-8 col-xs-offset-2 thumbnail">
+          <div class="thumbnail" style="margin-bottom: 0px;">
             <h2 class="text-center content_header">アカウント情報確認</h2>
             <div class="row">
               <div class="col-xs-4">
